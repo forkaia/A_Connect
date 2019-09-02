@@ -34,6 +34,21 @@ const UsersController = {
                 })
 
         },
+        logIn: (req, res) => {
+                const { username, password } = req.body;
+
+                const criteria =
+                        username.indexOf("@") === -1 ? { username } : { email: username };
+
+                Users.findOne(criteria).then(user => {
+                        if (password == user.password) {
+                                res.send('You have logged in').status(200)
+                        }
+
+                }).catch(() => {
+                        res.send("Incorrect password").status(404)
+                })
+        },
         deleteById: (req, res) => {
 
                 const { _id } = req.params;
