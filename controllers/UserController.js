@@ -1,3 +1,5 @@
+const Users = require('../models/Users.js')
+
 const UsersController = {
         findAll: (req, res) => {
                 Users.find().then((users) => {
@@ -48,3 +50,5 @@ const UsersController = {
                 })
         }
 }
+
+module.exports = UsersController
