@@ -1,0 +1,29 @@
+{
+  "name": "a_connect",
+  "version": "1.0.0",
+  "description": "A_Connect",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forkaia/A_Connect.git"
+  },
+  "author": "TareK El-Hajjaoui Majed Almansoori Charles Paulino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/forkaia/A_Connect/issues"
+  },
+  "homepage": "https://github.com/forkaia/A_Connect#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.6.11"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.19.1"
+  }
+}
