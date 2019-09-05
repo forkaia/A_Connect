@@ -16,7 +16,7 @@ router.post('/', createUser)
 
 
 // '/user/login'
-// POST request that creates a new user and adds the user to the Mongo DB
+// POST request that logs a user in
 router.post('/login', logIn)
 
 // '/users'
