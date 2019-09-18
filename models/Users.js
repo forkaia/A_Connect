@@ -18,6 +18,11 @@ const Users = new Schema({
         password: {
                 required: true,
                 type: String
+        },
+        registerDate: {
+                type: Date,
+                default: Date.now(),
+                required: true
         }
 })
 

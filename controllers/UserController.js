@@ -5,15 +5,17 @@ const jwt = require('jsonwebtoken');
 const UsersController = {
         // function that gathers all users from Mongo DB
         findAll: (req, res) => {
+                // res.send('test')
                 Users.find().then((users) => {
                         res.send(users).status(200);
                         if (!users) {
-                                res.sendStatus(404)
+                                console.log("Error")
+                                res.send("Error")
+                                // res.sendStatus(404)
                         }
                 }).catch((err) => {
                         throw err;
                 })
-
         },
         // function that creates a new user and adds the user's information to Mongo DB
         createUser: (req, res) => {
@@ -72,6 +74,7 @@ const UsersController = {
                 other wise it will search for a username that matches the given username */
                 const criteria = username.indexOf("@") === -1 ? { username } : { email: username };
                 Users.findOne(criteria).then(user => {
+                        console.log(user.password)
                         // compares the given password to the hashed password from the Mongo DB
                         bcrypt.compare(password, user.password).then((success) => {
                                 if (success) {

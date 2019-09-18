@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true })) // needed to submit form data
 app.use('/users', require('./routes/api/user.js')) // enables the user api route
 
 // Mongoose connection to Mongo DB via Mongo URI
-mongoose.connect(db, () => {
+mongoose.connect(db, { useNewUrlParser: true }, () => {
         console.log("The Mongo DB is now connected")
 })
 
