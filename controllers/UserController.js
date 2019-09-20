@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const UsersController = {
         // function that gathers all users from Mongo DB
         findAll: (req, res) => {
-                // res.send('test')
                 Users.find().then((users) => {
                         res.send(users).status(200);
                         if (!users) {

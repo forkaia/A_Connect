@@ -21,8 +21,7 @@ const Users = new Schema({
         },
         registerDate: {
                 type: Date,
-                default: Date.now(),
-                required: true
+                default: Date.now()
         }
 })
 
