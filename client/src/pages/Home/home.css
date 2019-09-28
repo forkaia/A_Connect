@@ -1,0 +1,11 @@
+/* #bg-home {
+        background-image: "/images/Home/bg-home.jpg";
+       
+} */
+#home-bg {
+        margin-top: -1rem
+}
+
+.home-buttons {
+        width: 180px;
+}
