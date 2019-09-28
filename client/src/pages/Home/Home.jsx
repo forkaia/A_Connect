@@ -61,8 +61,12 @@ class Home extends Component {
                                                                         </strong>
                                                                 </div>
                                                                 <div>
-                                                                        <Link to='/info'>
-                                                                                <button className='bg-none'
+                                                                        <Link
+                                                                                to='/info'
+                                                                        >
+                                                                                <button
+                                                                                        className='bg-none'
+                                                                                        href='/info'
                                                                                         style={{
                                                                                                 background: 'none',
                                                                                                 border: 'none',
