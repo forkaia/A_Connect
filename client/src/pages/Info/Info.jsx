@@ -14,7 +14,7 @@ const Info = () => {
                 <div
                         style={{
                                 backgroundColor: '#213387',
-                                height: '1000px'
+                                height: '620px'
                         }}
                 >
                         <Container fluid className='justify-content-around d-flex'
@@ -33,6 +33,7 @@ const Info = () => {
                                                                 color='none'
                                                         >
                                                                 <CardImg
+                                                                        className='text-white'
                                                                         src={item.src}
                                                                         alt={item.alt}
                                                                         style={{

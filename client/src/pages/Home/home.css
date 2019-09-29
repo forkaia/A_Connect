@@ -9,3 +9,7 @@
 .home-buttons {
         width: 180px;
 }
+
+.intro {
+        text-shadow: 2px 2px 4px #000000;
+}
