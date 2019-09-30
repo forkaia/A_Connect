@@ -1,10 +1,11 @@
 import React from 'react';
-import { Button, Col, Row } from 'reactstrap'
+import { Col, Row } from 'reactstrap'
 import { FaAngleDown } from "react-icons/fa"
 import { Link } from "react-router-dom";
 import homeBg from '../../images/Home/bg-home.jpg'
+import LoginModal from '../../components/LoginModal'
+import SignupModal from '../../components/SignupModal'
 import './home.css'
-console.log(`${homeBg} testing`)
 
 
 const Home = () => {
@@ -40,10 +41,12 @@ const Home = () => {
                                 </h1>
                                                 <h4 className='text-white intro'>Take your student-organization to the next level</h4>
                                                 <div>
-                                                        <Button className='text-white home-buttons' color="primary">Get Started</Button>
+                                                        <SignupModal />
+                                                        {/* <Button className='text-white home-buttons' color="primary">Get Started</Button> */}
                                                 </div>
                                                 <div className='mt-2'>
-                                                        <Button className='home-buttons bg-white text-dark'>Log in</Button>
+                                                        <LoginModal />
+                                                        {/* <Button className='home-buttons bg-white text-dark'>Log in</Button> */}
                                                 </div>
                                                 <div
                                                         className='d-flex justify-content-end flex-column-reverse'
