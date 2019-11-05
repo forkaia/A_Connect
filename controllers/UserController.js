@@ -68,14 +68,17 @@ const UsersController = {
         returns a JSON web token in return */
         logIn: (req, res) => {
                 const { username, password } = req.body;
+                console.log(password)
                 /* determines if the given login info is a username or email
                 if an '@' is present, it will search for an email that matches the given email 
                 other wise it will search for a username that matches the given username */
                 const criteria = username.indexOf("@") === -1 ? { username } : { email: username };
                 Users.findOne(criteria).then(user => {
-                        console.log(user.password)
+                        console.log(`user: ${password}`)
+                        console.log(`user.password: ${user.password}`)
                         // compares the given password to the hashed password from the Mongo DB
                         bcrypt.compare(password, user.password).then((success) => {
+                                console.log(success)
                                 if (success) {
                                         // if password matches, a JWT is signed and created for the user along with the user information
                                         jwt.sign(
@@ -83,6 +86,7 @@ const UsersController = {
                                                 process.env.jwtsecret,
                                                 { expiresIn: "1h" },
                                                 (err, token) => {
+                                                        console.log(`token: ${token}`)
                                                         if (err) throw err;
                                                         res.status(201).json({
                                                                 token,
@@ -99,10 +103,12 @@ const UsersController = {
                                         );
                                 }
                                 if (!success) {
+                                        console.log("Incorrect password")
                                         res.send('Incorrect password').status(500)
                                 }
                         });
                 }).catch(() => {
+                        console.log("User does not exist")
                         res.send("User does not exist").status(404)
                 })
         },
