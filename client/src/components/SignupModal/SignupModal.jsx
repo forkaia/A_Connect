@@ -41,7 +41,16 @@ class SignupModal extends Component {
       headers: {
         "Content-type": "application/json"
       }
-    });
+    })
+      .then(() => {
+        alert("You Have Successfully Created an Account!");
+        this.toggle();
+        window.location.reload();
+      })
+      .catch(err => {
+        alert("There was an Error in Creating Your Account. Please try again.");
+        throw err;
+      });
   };
 
   render() {
