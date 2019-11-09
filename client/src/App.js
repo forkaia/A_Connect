@@ -2,9 +2,7 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { withRouter } from "react-router";
 import Home from "./pages/Home";
-import Info from "./pages/Info";
-import Cal from "./pages/Cal";
-import More from "./pages/More";
+import Learn from "./pages/Learn";
 import SignHome from "./pages/SignHome";
 import AuthRouter from "./pages/Router.jsx";
 import "./App.css";
@@ -19,11 +17,7 @@ function App() {
         </Route> */}
           {/* </Router>
       <Router> */}
-          <Route
-            path="/info"
-            exact={true}
-            component={withRouter(Info, Cal, More)}
-          >
+          <Route path="/info" exact={true} component={withRouter(Learn)}>
             {/* <Info />
           <Cal />
           <More /> */}
