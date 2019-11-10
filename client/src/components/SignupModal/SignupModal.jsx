@@ -45,7 +45,9 @@ class SignupModal extends Component {
       .then(() => {
         alert("You Have Successfully Created an Account!");
         this.toggle();
-        window.location.reload();
+        // redirects user to login page
+        this.props.history.replace("/");
+        // window.location.reload();
       })
       .catch(err => {
         alert("There was an Error in Creating Your Account. Please try again.");
