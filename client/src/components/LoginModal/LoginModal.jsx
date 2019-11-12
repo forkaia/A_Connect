@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+// import AuthHelperMethods from "../Auth/AuthHelperMethods";
 import "./login-modal.css";
+
+// const Auth = new AuthHelperMethods();
 
 class LoginModal extends Component {
   constructor(props) {
@@ -31,6 +34,7 @@ class LoginModal extends Component {
       username,
       password
     };
+    // Auth.login(loginInfo);
     fetch("/users/login", {
       method: "POST",
       headers: {
@@ -51,7 +55,8 @@ class LoginModal extends Component {
         //   email: data.user.email,
         //   username: data.user.username
         // });
-        this.props.history.replace(`/protected/${data.user.id}`);
+        this.props.history.replace(`/protected/:${data.user.id}`);
+        return data;
       })
       .catch(err => {
         if (err) {

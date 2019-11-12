@@ -9,26 +9,35 @@ export default class AuthHelperMethods {
     //THIS LINE IS ONLY USED WHEN YOU'RE IN PRODUCTION MODE!
     this.domain = domain || "http://localhost:3001"; // API server domain
   }
-  login = (email, password, name, _id) => {
-    console.log("inside the AuthHelperMethods.js login");
-    // Get a token from api server using the fetch method defined below
-    return this.fetch("users/login", {
-      method: "POST",
-      // convert user info to JSON format and store it in the body of the response
-      body: JSON.stringify({
-        email,
-        password,
-        name,
-        _id
-      })
-    }).then(res => {
-      console.log("token response");
-      // Setting the token in localStorage - setToken defined below
-      this.setToken(res.token);
-      // finishing up the response?? - wait for the token to come back and then can set token to finish
-      return Promise.resolve(res);
-    });
-  };
+  // login = (username, password) => {
+  //   console.log("inside the AuthHelperMethods.js login");
+  //   // Get a token from api server using the fetch method defined below
+  //   return this.fetch("users/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     // convert user info to JSON format and store it in the body of the response
+  //     body: JSON.stringify({
+  //       password,
+  //       username
+  //     })
+  //   })
+  //     .then(res => {
+  //       res.json();
+  //     })
+  //     .then(data => {
+  //       console.log("token response");
+  //       // Setting the token in localStorage - setToken defined below
+  //       this.setToken(data.user.token);
+  //       alert(
+  //         `Thank You ${data.user.name}. You Have Successfully Logged Into your Account!`
+  //       );
+  //       this.props.history.replace(`/protected/${data.user._id}`);
+  //       // finishing up the response?? - wait for the token to come back and then can set token to finish
+  //       return Promise.resolve(data.user);
+  //     });
+  // };
   // END BUG (OLD)
 
   loggedIn = () => {
@@ -69,6 +78,7 @@ export default class AuthHelperMethods {
   logout = () => {
     // Clear user token and profile data from localStorage
     localStorage.removeItem("token");
+    alert("You have successfully logged out of your account. Thank you.");
   };
 
   getConfirm = () => {
@@ -100,15 +110,15 @@ export default class AuthHelperMethods {
       .then(response => response.json());
   };
 
-  _checkStatus = response => {
-    // raises an error in case response status is not a success
-    if (response.status >= 200 && response.status < 300) {
-      // Success status lies between 200 to 300
-      return response;
-    } else {
-      var error = new Error(response.statusText);
-      error.response = response;
-      throw error;
-    }
-  };
+  // _checkStatus = response => {
+  //   // raises an error in case response status is not a success
+  //   if (response.status >= 200 && response.status < 300) {
+  //     // Success status lies between 200 to 300
+  //     return response;
+  //   } else {
+  //     var error = new Error(response.statusText);
+  //     error.response = response;
+  //     throw error;
+  //   }
+  // };
 }

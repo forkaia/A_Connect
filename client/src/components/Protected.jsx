@@ -2,13 +2,21 @@ import React, { Component } from "react";
 import withAuth from "../components/Auth/withAuth";
 
 class Private extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+  }
 
   // componentDidMount() {
-  //   console.log("here " + this.props);
-  //   console.log(this.props);
+  //   const { id } = this.props.confirm;
+  //   fetch(`/users/:_${id}`, {
+  //     method: "GET"
+  //   })
+  //     .then(user => {
+  //       user.json();
+  //     })
+  //     .then(user => {
+  //       return user;
+  //     });
   // }
 
   render() {
