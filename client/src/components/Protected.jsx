@@ -4,27 +4,38 @@ import withAuth from "../components/Auth/withAuth";
 class Private extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      username: "",
+      email: "",
+      name: "",
+      _id: ""
+    };
   }
 
-  // componentDidMount() {
-  //   const { id } = this.props.confirm;
-  //   fetch(`/users/:_${id}`, {
-  //     method: "GET"
-  //   })
-  //     .then(user => {
-  //       user.json();
-  //     })
-  //     .then(user => {
-  //       return user;
-  //     });
-  // }
+  componentDidMount() {
+    const { id } = this.props.confirm;
+    fetch("/users/" + id, {
+      method: "GET"
+    })
+      .then(res => res.json())
+      .then(user => {
+        this.updateUser(user);
+      });
+  }
+
+  updateUser = user => {
+    const { username, email, name, _id } = user;
+    this.setState({
+      username,
+      email,
+      name,
+      _id
+    });
+  };
 
   render() {
     return (
       <div>
-        {/* {console.log(this.props)} */}
-        {/* Welcome: {this.props} */}
-        {/* {console.log(this.props)} */}
         <button
           onClick={props => {
             this.props.history.replace("/");
@@ -32,7 +43,7 @@ class Private extends Component {
         >
           Home
         </button>
-        <h4>This is a Private Route for: </h4>
+        <h4>This is a Private Route for: {this.state.name}</h4>
       </div>
     );
   }
